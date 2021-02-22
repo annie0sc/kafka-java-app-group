@@ -1,4 +1,4 @@
-package edu.nwmsu.bigdata.kafka.java.group2;
+package nwmsu.bigdata.kafkajava.sec01.group02;
 
 /**
  * Hello world!
