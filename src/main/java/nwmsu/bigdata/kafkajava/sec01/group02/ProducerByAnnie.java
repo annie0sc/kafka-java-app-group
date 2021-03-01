@@ -30,8 +30,10 @@ public class ProducerByAnnie {
   public static void main(String[] argv) throws Exception {
 
     // Create an input stream for the run properties ................
-    String runFile = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator
+    String runFile = System.getProperty("user.dir") + File.separator + "Documents" + File.separator + "Annie_Documents" + File.separator + "SEM_4" + File.separator + "BIG_DATA" + File.separator + "44571_44692" + File.separator + "kafka-java-app-group" + File.separator + "src" + File.separator + "main" + File.separator
         + "resources" + File.separator + "run.properties";
+    // String runFile = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator
+    //     + "resources" + File.separator + "run.properties";
     System.out.println("Reading config from " + runFile);
     runStream = new FileInputStream(runFile);
 

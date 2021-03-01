@@ -25,7 +25,8 @@ public class Consumer {
 
   public static void main(String[] argv) throws Exception {
     // Create an input stream for the run properties ................
-    String runFile = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator
+    // C:\Users\S538306\Documents\Annie_Documents\SEM_4\BIG_DATA\44571_44692\kafka-java-app-group\src\main\resources
+    String runFile = System.getProperty("user.dir") + File.separator + "Documents" + File.separator + "Annie_Documents" + File.separator + "SEM_4" + File.separator + "BIG_DATA" + File.separator + "44571_44692" + File.separator + "kafka-java-app-group" + File.separator + "src" + File.separator + "main" + File.separator
         + "resources" + File.separator + "consumer1.properties";
     System.out.println("Reading config from " + runFile);
     runStream = new FileInputStream(runFile);
