@@ -1,4 +1,4 @@
-package edu.nwmissouri.isl.professorcase.kafka;
+package nwmsu.bigdata.kafkajava.sec01.group02;
 
 import java.io.File;
 import java.io.FileInputStream;

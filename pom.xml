@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>nwmsu.bigdata.kafkajava.sec01.group02.ConsumerByAnnie</groupId>
+  <groupId>nwmsu.bigdata.kafkajava.sec01.group02</groupId>
   <artifactId>kafka-java-app-group</artifactId>
   <version>1.0-SNAPSHOT</version>
 
