@@ -16,7 +16,7 @@ Hello!
 ### Alekhya Jaddu
 
 
-### Swaroop Reddy
+### Swaroop Reddy Gottigundala
 
 
 ### Harika Kulkarni
