@@ -18,7 +18,7 @@ import org.apache.kafka.common.errors.WakeupException;
  * Reads properties from the run.properties file in 
  * src/main/resources.
  */
-public class CustomConsumer {
+public class ConsumerByAnnie {
   private static Scanner in;
   private static FileInputStream runStream = null;
   private static Properties runProperties = new Properties();

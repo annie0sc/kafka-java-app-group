@@ -23,7 +23,7 @@ import java.io.IOException;
  * Reads properties from the run.properties file in 
  * src/main/resources.
  */
-public class CustomProducer {
+public class ProducerByAnnie {
   private static FileInputStream runStream = null;
   private static Properties runProperties = new Properties();
 
