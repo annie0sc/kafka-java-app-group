@@ -14,7 +14,7 @@
 
 ## Team Members
 ## Alekhya Jaddu
-For my custom producer package I have used the days of week and type of weather. The messages which will be displayed are days of the week and type of weather on that day. joined by a verb.
+For my custom producer package I have used the days of week and type of weather. The messages which will be displayed are days of the week and the type of weather on that day, joined by a verb.
 ### Setting up the Kafka environment
 * Open PowerShell in C:\kafka_2.13-2.7.0 folder.
 
