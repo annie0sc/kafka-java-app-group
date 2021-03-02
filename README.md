@@ -9,14 +9,12 @@
 <td align="center"><a href="https://github.com/KHARIKA17"><img src="https://avatars.githubusercontent.com/u/60010885?s=460&u=24c5428d5a37b37a3efd752d271740b402177734&v=4" width="100px;" alt=""/><br /><sub><b>Harika Kulkarni</b></sub></a><br /></td>
 </table>
 
-### Annie Chandolu (Team Lead)
+## Team Lead
+### Annie Chandolu 
 
-Hello! 
-
+## Team Members
 ### Alekhya Jaddu
 
-
 ### Swaroop Reddy Gottigundala
-
 
 ### Harika Kulkarni
