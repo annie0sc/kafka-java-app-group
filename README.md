@@ -9,8 +9,48 @@
 <td align="center"><a href="https://github.com/KHARIKA17"><img src="https://avatars.githubusercontent.com/u/60010885?s=460&u=24c5428d5a37b37a3efd752d271740b402177734&v=4" width="100px;" alt=""/><br /><sub><b>Harika Kulkarni</b></sub></a><br /></td>
 </table>
 
-## Team Lead
-## Annie Chandolu 
+## Annie Chandolu - Team Lead
+
+Hello! I have used the random funtion to generate a ssentence which displays a date and it's day. It may or may not be the exact day. 
+
+[Link to my code](https://github.com/annie0sc/kafka-java-app-group/blob/main/src/main/java/nwmsu/bigdata/kafkajava/sec01/group02/ProducerByAnnie.java) 
+
+#### Commands used:
+
+I have used the following commands to run:
+
+1. Start Zookeeper in your kafka folder on C drive.
+```
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+```
+1. Start Kafka in the same folder as above.
+```
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+```
+1. Creat a new topic and list all of them in the same folder. I have created a new topic called annies-part2-messages.
+```
+.\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --create --topic annies-part2-messages
+.\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --list
+```
+1. Then open your code folder and run the MVN command to compile the code.
+```
+mvn clean compile assembly:single
+```
+1. Once the build is complete, start the Consumer using your artifact ID, group ID and topic name.
+```
+java -cp target/kafka-java-app-group-1.0-SNAPSHOT-jar-with-dependencies.jar nwmsu.bigdata.kafkajava.sec01.group02.Consumer annies-part2-messages group02
+```
+1. Then start the Producer in the same folder.
+```
+java -cp target/kafka-java-app-group-1.0-SNAPSHOT-jar-with-dependencies.jar nwmsu.bigdata.kafkajava.sec01.group02.ProducerByAnnie annies-part2-messages
+```
+Voila! Your app will run!
+
+#### References:
+
+1. [Dr. Case's Twitter Example](https://github.com/denisecase/kafka-case)
+1. [Dr. Case's Kafka Example](https://github.com/denisecase/kafka-api)
+1. [Gundu Pooja's Group](https://github.com/GUNDUPOOJA/kafka-java-app)
 
 ## Team Members
 ## Alekhya Jaddu
