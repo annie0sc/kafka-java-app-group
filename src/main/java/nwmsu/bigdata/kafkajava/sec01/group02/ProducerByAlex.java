@@ -60,7 +60,7 @@ public class ProducerByAlex {
   
     private static String randomSentence() {
 
-    String[] subjects = { "Today","Yesterday","Tomorrow"};
+    String[] subjects = { "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
     String[] verbs = { "is", "was", "will be", "isn't", "will never be" };
     String[] objs = { "windy", "rainy", "snowy", "chilly", "sunny" };
 
