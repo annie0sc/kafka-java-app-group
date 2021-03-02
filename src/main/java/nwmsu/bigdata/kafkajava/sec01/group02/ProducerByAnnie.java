@@ -4,87 +4,82 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
-import java.util.Properties;
-import java.util.Scanner;
-import java.lang.*;
 import java.util.*;
+import java.lang.*;
 
 
 public class ProducerByAnnie {
-  private static Scanner in;
 
-  public static void main(String[] argv) throws Exception {
-    if (argv.length != 1) {
-      System.err.println("Please specify 1 parameter (the name of the topic)");
-      System.exit(-1);
-    }
-    String topicName = argv[0];
-    in = new Scanner(System.in);
-    System.out.println("Thank you for providing the topic " + topicName + "\n");
-    System.out.println("Enter message (type exit to quit).\n");
+    private static Scanner scan;
 
-    // Configure the Producer
-    Properties configProperties = new Properties();
-    configProperties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-    configProperties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
-        "org.apache.kafka.common.serialization.ByteArraySerializer");
-    configProperties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
-        "org.apache.kafka.common.serialization.StringSerializer");
-
-
-    System.out.println("The configuration properties are: " + configProperties.toString());
-    System.out.println("\nWill use this configuration to create a producer.\n");
-
-    org.apache.kafka.clients.producer.Producer producer = new KafkaProducer(configProperties);
-
-    // Make our own messages - create your custom logic here
-
-    Random random = new Random();
-
-        String input = in.nextLine();
-
-        // we need 5 messages to print
-        for (int i = 0; i<5; i++){
-            //get a random num to display message
-            int  randomno= random.nextInt(5);
-            String sent = randomsentence(randomno);
-            ProducerRecord<String, String> rec = new ProducerRecord<String, String>(topicName, sent);
-            producer.send(rec);
+    public static void main(String[] argv) throws Exception {
+      if (argv.length != 1) {
+        System.err.println("Please specify 1 parameter (the name of the topic)");
+        System.exit(-1);
+      }
+    //   System.out.print("Enter a topic name: ");
+      String topicName = argv[0];
+      scan = new Scanner(System.in);
+      System.out.println("Thank you for providing the topic " + topicName + "\n");
+      System.out.println("Enter message (type exit to quit).\n");
+  
+      // Configure the Producer
+      Properties configProperties = new Properties();
+      configProperties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+      configProperties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
+          "org.apache.kafka.common.serialization.ByteArraySerializer");
+      configProperties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
+          "org.apache.kafka.common.serialization.StringSerializer");
+  
+  
+      System.out.println("The configuration properties are: " + configProperties.toString());
+      System.out.println("\nWill use this configuration to create a producer.\n");
+  
+      org.apache.kafka.clients.producer.Producer producer = new KafkaProducer(configProperties);
+  
+      // Make our own messages - create your custom logic here
+      for (int i = 1; i <= 10; i++) {
+          String message = randomSentence();
+          ProducerRecord<String, String> rec = new ProducerRecord<String, String>(topicName, message);
+          producer.send(rec);
         }
-
-        // Allow the user to type exit to get out.
-        String line = in.nextLine();
-        while(!line.equals("exit")){
-            ProducerRecord<String, String> rec = new ProducerRecord<String, String>(topicName, (line + ", Hello big data developers!"));
-            producer.send(rec);
-            line = in.nextLine();
+    
+        // still allow input from keyboard
+    
+        String line = scan.nextLine();
+        while (!line.equals("exit")) {
+          ProducerRecord<String, String> rec = new ProducerRecord<String, String>(topicName, line);
+          producer.send(rec);
+          line = scan.nextLine();
         }
-
-        //User has typed exit
-
-        in.close();
+    
+        scan.close();
         producer.close();
-
+    
+      }
+    
+      private static String randomSentence() {
+  
+      String[] dates = { "01/06/2020","02/17/2021","08/09/2006","04/20/2010","12/25/2012"};
+      String[] days = { "Mon", "Tue", "Wed", "Thus", "Fri", "Sat", "Sun" };
+      String[] words= { "is", "isn't", "was", "wasn't" };
+     
+    // //   String input_date="01/08/2012";
+    //   SimpleDateFormat format1=new SimpleDateFormat("dd/MM/yyyy");
+    //   Date dt1=format1.parse(dates[0]);
+    //   DateFormat format2=new SimpleDateFormat("EEEE"); 
+    //   String finalDay=format2.format(dt1);
+    //   return dt1;
+  
+      Random r = new Random();
+  
+      int count = 3;
+      int minIndex = 0;
+      int maxIndex = 4;
+  
+      int[] randoms = r.ints(count, minIndex, maxIndex).toArray();
+  
+      return dates[randoms[0]] + " " + words[randoms[1]] + " " + days[randoms[2]] + ".";
     }
-
-    private static String randomsentence(int n) {
-        if(n==0){
-          return "Pablo Picasso";
-        }
-        else if(n==1){
-          return "Leonardo da Vinci";
-        }
-        else if(n==2){
-          return "Henri Matisse";
-        }
-       else if(n==3){
-          return "Jackson Pollock";
-        }
-       else if(n==4){
-          return "Edvard Munch.";
-        }
-        else {
-          return "Andy Warhol";
-        }
-    }
- }
+  }
+    
