@@ -18,3 +18,21 @@
 ### Swaroop Reddy Gottigundala
 
 ### Harika Kulkarni
+
+## Setting up the Kafka environment
+* Open PowerShell in C:\kafka_2.13-2.7.0 folder.
+
+* Use a different PowerShell window for each process.
+
+Window 1 - Run Zookeeper Service (keep window open)
+```
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+```
+Window 2 - Run Kafka Service (keep window open)
+```
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+```
+Window 3  - Create your topic name
+```
+.\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --create --topic TOPIC-NAME
+```
