@@ -10,16 +10,12 @@
 </table>
 
 ## Team Lead
-### Annie Chandolu 
+## Annie Chandolu 
 
 ## Team Members
-### Alekhya Jaddu
-
-### Swaroop Reddy Gottigundala
-
-### Harika Kulkarni
-
-## Setting up the Kafka environment
+## Alekhya Jaddu
+For my custom producer package I have used the days of week and type of weather. The messages which will be displayed are days of the week and type of weather on that day. joined by a verb.
+### Setting up the Kafka environment
 * Open PowerShell in C:\kafka_2.13-2.7.0 folder.
 
 * Use a different PowerShell window for each process.
@@ -34,5 +30,21 @@ Window 2 - Run Kafka Service (keep window open)
 ```
 Window 3  - Create your topic name
 ```
-.\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --create --topic TOPIC-NAME
+.\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --create --topic alex-kafka
 ```
+### Compile and build the jar file
+Open PowerShell as Administrator in your root project folder
+```
+mvn clean compile assembly:single
+```
+### Start Producer
+```
+java -cp target/kafka-java-app-group-1.0-SNAPSHOT-jar-with-dependencies.jar nwmsu.bigdata.kafkajava.sec01.group02.ProducerByAlex alex-kafka
+```
+### Start Consumer
+```
+java -cp target/kafka-java-app-group-1.0-SNAPSHOT-jar-with-dependencies.jar nwmsu.bigdata.kafkajava.sec01.group02.Consumer alex-kafka group02
+```
+## Swaroop Reddy Gottigundala
+
+## Harika Kulkarni
