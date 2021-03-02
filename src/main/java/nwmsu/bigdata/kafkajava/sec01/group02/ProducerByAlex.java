@@ -38,14 +38,41 @@ public class ProducerByAlex {
     org.apache.kafka.clients.producer.Producer producer = new KafkaProducer(configProperties);
 
     // Make our own messages - create your custom logic here
-
-    
-        //User has typed exit
-
-        in.close();
-        producer.close();
-
+    for (int i = 1; i <= 10; i++) {
+        String message = randomSentence();
+        ProducerRecord<String, String> rec = new ProducerRecord<String, String>(topicName, message);
+        producer.send(rec);
+      }
+  
+      // still allow input from keyboard
+  
+      String line = in.nextLine();
+      while (!line.equals("exit")) {
+        ProducerRecord<String, String> rec = new ProducerRecord<String, String>(topicName, line);
+        producer.send(rec);
+        line = in.nextLine();
+      }
+  
+      in.close();
+      producer.close();
+  
     }
+  
+    private static String randomSentence() {
 
-    
- }
+    String[] subjects = { "Today","Yesterday","Tomorrow"};
+    String[] verbs = { "is", "was", "will be", "isn't", "will never be" };
+    String[] objs = { "windy", "rainy", "snowy", "chilly", "sunny" };
+
+    Random r = new Random();
+
+    int count = 3;
+    int minIndex = 0;
+    int maxIndex = 4;
+
+    int[] randoms = r.ints(count, minIndex, maxIndex).toArray();
+
+    return subjects[randoms[0]] + " " + verbs[randoms[1]] + " " + objs[randoms[2]] + ".";
+  }
+}
+  
