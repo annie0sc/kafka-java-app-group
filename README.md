@@ -116,33 +116,26 @@ java -cp target/kafka-java-app-group-1.0-SNAPSHOT-jar-with-dependencies.jar nwms
 I have generated a random sentencen using Articles,noun,verb,preposition.
 ### Steps involved:
 Step1: In Kafka Folder,open powershell as Admin and start Zookeeper service as below:
-Window 1 - Run Zookeeper service
 ```
 .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
 ```
-Step2:In Kafka Folder,open another powershell as Admin and start Kafka service as below:
-Window 2 - Run Kafka Service 
+Step2: In Kafka Folder,open another powershell as Admin and start Kafka service as below:
 ```
 .\bin\windows\kafka-server-start.bat .\config\server.properties
 ```
-Step3:In Kafka Folder,open another powershell as Admin and create a topic
-Window 3  - Create your topic name
-
+Step3: In Kafka Folder,open another powershell as Admin and create a topic
 ```
 .\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --create --topic random-text
 ```
-Step4:In root project folder,open Powershell as admin and compile the code using the below command.
-Window 4 - Compile the jar file
+Step4: In root project folder,open Powershell as admin and compile the code using the below command.
 ```
 mvn clean compile assembly:single
 ```
-Step5:In the same root project folder,start the Consumer.
-Window 5 - Start Consumer
+Step5: In the same root project folder,start the Consumer using another terminal
 ```
 java -cp target/kafka-java-app-group-1.0-SNAPSHOT-jar-with-dependencies.jar nwmsu.bigdata.kafkajava.sec01.group02.Consumer random-text group02
 ```
-Step6:In the same root project folder,start the Producer.
-Window 6 - Start Producer
+Step6: In the same root project folder,start the Producer using another terminal
 ```
 java -cp target/kafka-java-app-group-1.0-SNAPSHOT-jar-with-dependencies.jar nwmsu.bigdata.kafkajava.sec01.group02.ProducerByHarika random-text
 ```
