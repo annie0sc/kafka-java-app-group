@@ -86,5 +86,30 @@ java -cp target/kafka-java-app-group-1.0-SNAPSHOT-jar-with-dependencies.jar nwms
 java -cp target/kafka-java-app-group-1.0-SNAPSHOT-jar-with-dependencies.jar nwmsu.bigdata.kafkajava.sec01.group02.Consumer alex-kafka group02
 ```
 ## Swaroop Reddy Gottigundala
-
+ I have randomly generated the lyrics of the song "My Life is going on" by Cecilia Krull for my custom producer package.
+### Kafka commands
+Window 1 - Run Zookeeper service
+```
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+```
+Window 2 - Run Kafka Service 
+```
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+```
+Window 3  - Create your topic name
+```
+.\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --create --topic sunny-messages
+```
+Window 4 - Compile the jar file
+```
+mvn clean compile assembly:single
+```
+Window 5 - Start Producer
+```
+java -cp target/kafka-java-app-group-1.0-SNAPSHOT-jar-with-dependencies.jar nwmsu.bigdata.kafkajava.sec01.group02.ProducerBySunny sunny-messages
+```
+Window 6 - Start Consumer
+```
+java -cp target/kafka-java-app-group-1.0-SNAPSHOT-jar-with-dependencies.jar nwmsu.bigdata.kafkajava.sec01.group02.Consumer sunny-messages group02
+```
 ## Harika Kulkarni
